@@ -1,0 +1,6 @@
+@Real_Time_Stock_Exchange_Application_HostAddress = http://localhost:5291
+
+GET {{Real_Time_Stock_Exchange_Application_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
