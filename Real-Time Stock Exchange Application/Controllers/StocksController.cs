@@ -16,7 +16,7 @@ namespace Real_Time_Stock_Exchange_Application.Controllers
             _alphaVantageService = alphaVantageService;
         }
 
-        // Endpoint to retrieve real-time stock data
+        
         [HttpGet]
         public async Task<IActionResult> GetStocks(string symbol)
         {
@@ -39,7 +39,7 @@ namespace Real_Time_Stock_Exchange_Application.Controllers
             }
         }
 
-        // Endpoint to retrieve historical stock data for a given symbol
+       
         [HttpGet("{symbol}/history")]
         public async Task<IActionResult> GetStockHistory(string symbol)
         {
@@ -62,13 +62,13 @@ namespace Real_Time_Stock_Exchange_Application.Controllers
             }
         }
 
-        // Endpoint to create an order
+       
         [HttpPost("order")]
         public IActionResult CreateOrder([FromBody] Order order)
         {
             try
             {
-                // Validate the order data
+               
                 if (order == null)
                 {
                     return BadRequest("Invalid order data: Order object is null.");

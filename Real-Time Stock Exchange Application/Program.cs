@@ -1,5 +1,3 @@
-// In Program.cs
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -53,6 +51,10 @@ namespace Real_Time_Stock_Exchange_Application
                         });
 
                         app.UseAuthorization();
+
+                        // Serve default files and static files
+                        app.UseDefaultFiles();
+                        app.UseStaticFiles();
 
                         app.UseEndpoints(endpoints =>
                         {
