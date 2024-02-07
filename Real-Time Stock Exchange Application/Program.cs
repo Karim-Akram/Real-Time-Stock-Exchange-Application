@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Real_Time_Stock_Exchange_Application.Hubs;
-using System;
-using System.Net.Http;
 
 namespace Real_Time_Stock_Exchange_Application
 {
@@ -35,6 +32,14 @@ namespace Real_Time_Stock_Exchange_Application
                     {
                         app.UseHttpsRedirection();
                         app.UseRouting();
+
+                        // Add CORS policy
+                        app.UseCors(builder =>
+                        {
+                            builder.WithOrigins("http://localhost:4200")
+                                   .AllowAnyHeader()
+                                   .AllowAnyMethod();
+                        });
 
                         // Add authentication middleware
                         app.Use(async (context, next) =>
